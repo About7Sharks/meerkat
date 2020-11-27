@@ -2,13 +2,7 @@ import React from "react";
 import Title from "./components/Title";
 import { Button } from "antd";
 import { DownloadOutlined } from "@ant-design/icons";
-import fileDownload from "js-file-download";
 
-const handleDownload = async (url, filename) => {
-  let resp = await fetch(url);
-  let file = await resp.json();
-  console.log(resp);
-};
 export default function Download() {
   return (
     <div>
@@ -49,7 +43,19 @@ export default function Download() {
             <DownloadOutlined /> Linux AppImage
           </Button>
           <br /> <br />
-          <Button>
+          <Button
+            onClick={() => {
+              window.open(
+                "https://github.com/About7Sharks/meerkat/raw/Main/Meerkat-0.1.0.deb",
+                "Meerkat",
+                {
+                  target: "noreferrer",
+                  width: 100,
+                  height: 100,
+                }
+              );
+            }}
+          >
             <DownloadOutlined /> Debian
           </Button>
         </div>
