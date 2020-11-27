@@ -42,17 +42,11 @@ body {
     margin-top: 25px;
   }
 }
-.downloadPage {
-  margin: 25px;
-  h3 {
-    margin-top: 30px;
-    font-weight: 600;
-  }
-}
 
 .tools,
 .About,
 .sysInfo,
+.downloadPage,
 .networkInfo,
 .Home {
   min-height: 100vh;
@@ -61,6 +55,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
 .content {
   margin: 15px;
 }
@@ -88,7 +83,17 @@ body {
     text-transform: capitalize;
   }
 }
-
+.downloadPage {
+  margin: 25px;
+  text-align: left;
+  .linuxDownloads {
+    text-align: left;
+  }
+  h3 {
+    margin-top: 30px;
+    font-weight: 600;
+  }
+}
 .networkInfo {
   margin: 0 auto;
   max-width: 800px;

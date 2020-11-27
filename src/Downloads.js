@@ -7,7 +7,7 @@ import fileDownload from "js-file-download";
 const handleDownload = async (url, filename) => {
   let resp = await fetch(url);
   let file = await resp.json();
-  console.log(file);
+  console.log(resp);
 };
 export default function Download() {
   return (
@@ -16,7 +16,7 @@ export default function Download() {
 
       <div className="downloadPage">
         <p>
-          The Git repo is located
+          The Git repo is located &nbsp;
           <a
             href="https://github.com/About7Sharks/meerkat"
             rel="noreferrer"
@@ -35,9 +35,14 @@ export default function Download() {
           <h3>Linux</h3>
           <Button
             onClick={() => {
-              handleDownload(
-                "http://localhost:3000/Meerkat-0.1.0.AppImage",
-                "test-download.jpg"
+              window.open(
+                "https://github.com/About7Sharks/meerkat/raw/Main/Meerkat-0.1.0.AppImage",
+                "Meerkat",
+                {
+                  target: "noreferrer",
+                  width: 100,
+                  height: 100,
+                }
               );
             }}
           >
@@ -45,15 +50,15 @@ export default function Download() {
           </Button>
           <br /> <br />
           <Button>
-            <DownloadOutlined /> Debian, Ubuntu...
+            <DownloadOutlined /> Debian
           </Button>
         </div>
-        <div className="macDownload">
+        {/* <div className="macDownload">
           <h3>MacOS</h3>
           <Button>
             <DownloadOutlined /> Coming Soon
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
