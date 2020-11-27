@@ -46,7 +46,7 @@ export default function Download() {
           <Button
             onClick={() => {
               window.open(
-                "https://github.com/About7Sharks/meerkat/raw/Main/Meerkat-0.1.0.deb",
+                "https://github.com/About7Sharks/meerkat/raw/Main/meerkat_0.1.0_amd64.deb",
                 "Meerkat",
                 {
                   target: "noreferrer",
