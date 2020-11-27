@@ -1,0 +1,89 @@
+{
+  "name": "meerkat",
+  "version": "0.1.0",
+  "private": true,
+  "productName": "Meerkat",
+  "homepage": "./",
+  "email": "zacarlin@gmail.com",
+  "description": "A set of tools to help the community",
+  "author": "Zach",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.8.2",
+    "js-file-download": "^0.4.12",
+    "neat-csv": "^5.2.0",
+    "node-sass": "^4.14.1",
+    "oui": "^11.0.42",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0",
+    "systeminformation": "^4.29.1",
+    "web-vitals": "^0.2.4"
+  },
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "BROWSER=none react-scripts start",
+    "dev": "concurrently \"npm run start\" \"wait-on http://localhost:3000 && npm run electron\"",
+    "electron": "ELECTRON_ENV=development electron --no-sandbox .",
+    "buildE": "cp -r electron/. build/electron",
+    "pack": "electron-builder ",
+    "package": "electron-builder  build --linux -c.extraMetadata.main=build/electron/main.js --publish never",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1",
+    "electron-rebuild": "^2.3.2",
+    "wait-on": "^5.2.0"
+  },
+  "build": {
+    "appId": "meerkat",
+    "files": [
+      "electron/*",
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "linux": {
+      "category": "Utility",
+      "synopsis": "meerkats bro...",
+      "target": [
+        "deb",
+        "appImage"
+      ],
+      "maintainer": "sock"
+    },
+    "deb": {
+      "depends": [
+        "libappindicator3-1"
+      ]
+    },
+    "publish": {
+      "provider": "github",
+      "repo": "meerkatreact",
+      "owner": "ZacharyC"
+    }
+  }
+}
